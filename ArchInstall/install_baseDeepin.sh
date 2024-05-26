@@ -1,4 +1,5 @@
 #!/bin/bash
+
 pacman-key --init
 
 pacman-key --init
@@ -29,16 +30,17 @@ echo "Senha do Root"
 
 passwd
 
-echo "Adicionando usuário padrão James"
+echo "Adicionando usuário padrão Eggman"
 
 useradd -m -g users -G wheel,storage,power -s /bin/bash eggman
 
 passwd eggman
 
-pacman -S dosfstools mtools os-prober networkmanager network-manager-applet wpa_supplicant wireless_tools dialog mesa xorg-xinit xorg-server xorg-apps xf86-video-intel nvidia nvidia-settings konsole plasma okular dolphin firefox neofetch nasm git wget curl
+pacman -S dosfstools mtools os-prober networkmanager network-manager-applet wpa_supplicant wireless_tools dialog mesa xorg-xinit xorg-server xorg-apps xf86-video-intel nvidia nvidia-settings deepin lightdm deepin-extra firefox neofetch nasm git wget curl
 
 echo "eggman ALL=(ALL:ALL) ALL" >> /etc/sudoers
 
 systemctl enable NetworkManager
 
-systemctl enable sddm
+systemctl enable lightdm
+        
