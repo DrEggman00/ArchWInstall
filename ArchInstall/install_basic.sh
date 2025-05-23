@@ -10,6 +10,8 @@ cp -rv /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
 cp -rv /etc/pacman.conf /mnt/etc/pacman.conf
 
+cp -rv ../grub /mnt/etc/default/grub
+
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
 cp -rv *.sh /mnt/
