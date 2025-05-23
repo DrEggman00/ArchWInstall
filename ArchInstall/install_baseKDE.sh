@@ -17,7 +17,7 @@ locale-gen
 
 echo "LANG=pt_BR.UTF-8" > /etc/locale.conf
 
-echo "laptop" > /etc/hostname
+echo "computador" > /etc/hostname
 
 echo "KEYMAP=br-abnt2" > /etc/vconsole.conf
 
@@ -31,13 +31,13 @@ passwd
 
 echo "Adicionando usuário padrão James"
 
-useradd -m -g users -G wheel,storage,power -s /bin/bash eggman
+useradd -m -g users -G wheel,storage,power -s /bin/bash dr
 
-passwd eggman
+passwd dr
 
-pacman -S dosfstools mtools os-prober networkmanager network-manager-applet wpa_supplicant wireless_tools dialog mesa xorg-xinit xorg-server xorg-apps xf86-video-intel nvidia nvidia-settings konsole plasma okular dolphin firefox neofetch nasm git wget curl
+pacman -S dosfstools mtools os-prober networkmanager network-manager-applet wpa_supplicant wireless_tools dialog mesa xorg-xinit xorg-server xorg-apps xf86-video-intel nvidia nvidia-settings konsole plasma okular dolphin firefox nasm git wget curl
 
-echo "eggman ALL=(ALL:ALL) ALL" >> /etc/sudoers
+echo "dr ALL=(ALL:ALL) ALL" >> /etc/sudoers
 
 systemctl enable NetworkManager
 
