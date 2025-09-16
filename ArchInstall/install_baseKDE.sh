@@ -35,7 +35,7 @@ useradd -m -g users -G wheel,storage,power -s /bin/bash dr
 
 passwd dr
 
-pacman -S dosfstools mtools os-prober networkmanager network-manager-applet wpa_supplicant wireless_tools dialog mesa xorg-xinit xorg-server xorg-apps xf86-video-intel nvidia nvidia-settings konsole plasma okular dolphin firefox nasm git wget curl
+pacman -S dosfstools mtools os-prober networkmanager network-manager-applet wpa_supplicant wireless_tools dialog mesa xorg-xinit xorg-server xorg-apps xf86-video-intel nvidia nvidia-settings konsole plasma firefox nasm git wget curl
 
 echo "dr ALL=(ALL:ALL) ALL" >> /etc/sudoers
 
