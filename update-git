@@ -1,0 +1,10 @@
+
+set -e
+
+git init
+
+MESSAGE=$1
+
+git add .
+
+git commit -m "$MESSAGE"

@@ -30,7 +30,7 @@ pacstrap -K /mnt \
   base base-devel linux linux-firmware \
   grub efibootmgr intel-ucode \
   networkmanager plasma-meta sddm \
-  nano vim bitwarden nasm
+  nano vim bitwarden nasm konsole dolphin $WEBBROWSER
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
@@ -47,7 +47,7 @@ echo "$HOSTNAME" > /mnt/etc/hostname
 
 arch-chroot /mnt systemctl enable NetworkManager sddm
 
-arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
+arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id="Arch Linux"
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 arch-chroot /mnt useradd -m -G wheel -s /bin/bash "$USERNAME"

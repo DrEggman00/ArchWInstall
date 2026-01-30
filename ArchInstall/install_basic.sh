@@ -1,5 +1,0 @@
-sgdisk --zap-all "$DISK"
-sgdisk -n 1:0:+1G -t 1:ef00 "$DISK"
-sgdisk -n 2:0:-25G  -t 2:8300 "$DISK"
-sgdisk -n 3:0:0      -t 3:8200 "$DISK"
-partprobe "$DISK"
