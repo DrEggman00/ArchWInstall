@@ -2,7 +2,10 @@
 
 set -Eeuo pipefail
 
+cp -rv ./pacman.conf /etc/pacman.conf
+
 source ./config.conf
+
 
 loadkeys "$KEYMAP"
 setfont ter-v32n
@@ -34,6 +37,8 @@ pacstrap -K /mnt \
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
+cp -rv /etc/pacman.conf /mnt/etc/pacman.conf
+
 arch-chroot /mnt ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
 arch-chroot /mnt hwclock --systohc
 
@@ -48,6 +53,9 @@ echo "$HOSTNAME" > /mnt/etc/hostname
 arch-chroot /mnt systemctl enable NetworkManager sddm
 
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id="Arch Linux"
+
+cp -rv ./grub /mnt/etc/default/grub
+
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 arch-chroot /mnt useradd -m -G wheel -s /bin/bash "$USERNAME"
@@ -56,5 +64,4 @@ arch-chroot /mnt passwd
 
 arch-chroot /mnt passwd "$USERNAME"
 
-echo "%wheel ALL=(ALL:ALL) ALL" > /mnt/etc/sudoers.d/wheel
-chmod 440 /mnt/etc/sudoers.d/wheel
+echo "$USENAME ALL=(ALL:ALL) ALL" > /mnt/etc/sudoers
